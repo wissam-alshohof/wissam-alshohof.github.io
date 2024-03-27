@@ -29,7 +29,7 @@ jobs:
     - run: npm ci
     - run: npm run build 
     - name: Deploy to GitHub Pages
-      uses: actions/deploy-to-github-pages
+      uses: JamesIves/github-pages-deploy-action@v4
       with:
         branch: gh-pages
         folder: dist/wissam-alshohof.github.io/browser
