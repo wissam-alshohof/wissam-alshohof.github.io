@@ -29,7 +29,15 @@ jobs:
     - run: npm ci
     - run: npm run build 
     - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@3.7.1
-        with:
-          branch: gh-pages 
-          folder: dist/wissam-alshohof.github.io/browser
+      uses: "composite"
+    - name: Create gh-pages
+      run: |
+              cd dist/wissam-alshohof.github.io/browser
+              ln -s index.html 404.html
+              git config --global user.email "${{ secrets.EMAIL }}"
+              git config --global user.name "${{ secrets.NAME }}"
+              git init
+              git add .
+              git commit -m 'deploy'
+              git push -f https://wissam-alshohof@github.com/wissam-alshohof/wissam-alshohof.github.io.git master:gh-pages
+      shell: bash
