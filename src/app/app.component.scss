@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    background-color: #c1c1c1;
+    background-color: var(--bgClr, #c1c1c1);
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+
+}
+.box {
+    width: max(100px, 75%);
+    height: 100px;
+    border-radius: 20px;
+    margin: 20px auto;
+    background-color: color-mix(in oklab, var(--bgClr) 70%, grey 30%);
+}
